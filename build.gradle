@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'java-library'
+}
+
+group 'xyz.chide1.rojeshop'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+}
+
+dependencies {
+    //JAVA DEPENDENCIES
+    compileOnly "org.jetbrains:annotations:24.0.1"
+    compileOnly "org.projectlombok:lombok:1.18.28"
+    annotationProcessor "org.projectlombok:lombok:1.18.28"
+
+    //BUKKIT DEPENDENCIES
+    compileOnly 'org.spigotmc:spigot-api:1.20.4-R0.1-SNAPSHOT'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+jar {
+    archiveFileName = "RojeShop.jar"
+    destinationDirectory.set(file('E:\\마크서버\\테스트서버\\1.20.4\\plugins'))
+}
